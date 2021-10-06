@@ -18,6 +18,9 @@ fun getUserChoice(options: Array<String>): String {
     do {
         println(question)
         userChoice = readLine().toString()
+        if(!options.contains(userChoice)) {
+            println("please enter one of these values:")
+        }
     } while (!options.contains(userChoice))
 
     return userChoice
@@ -30,15 +33,5 @@ fun determineWinner(userChoice: String, computerChoice: String): String {
         return "You Won!"
     } else {
         return "You Lost!"
-    }
-}
-
-fun playGame(userInput: String, randomOption: String) {
-    if ((userInput == "paper" && randomOption == "rock") || (userInput == "scissors" && randomOption == "paper") || (userInput == "rock" && randomOption == "scissors")) {
-        println("You Won!")
-    } else if(userInput == randomOption) {
-        println("It's a tie. Try again!")
-    } else {
-        println("You lost. Try again")
     }
 }
